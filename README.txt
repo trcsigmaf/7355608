@@ -1,2 +1,2 @@
 hello world
-print("I eat poo")
+print("I eat potato")
