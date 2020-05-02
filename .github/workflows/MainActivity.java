@@ -16,34 +16,22 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //Find our button. It's just a regular button center in the screen.
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button1);
-
-        //Set an onClickListener to detect clicks.
-        button1.setOnClickListener(new ButtonListener());
-        button2.setOnClickListener(new ButtonListener());
     }
 
-    class ButtonListener implements View.OnClickListener
+    public void onClick(View v)
     {
-        @Override
-        public void onClick(View v)
+        String buttonText;
+        //Create a new Intent from this activity to Page 2.
+        buttonText = ((Button)v).getText().toString();
+        if(buttonText.equals("Driver"))
         {
-            String buttonText;
-            //Create a new Intent from this activity to Page 2.
-            buttonText = ((Button)v).getText().toString();
-            if(buttonText.equals("Driver"))
-            {
-                Intent intent = new Intent(MainActivity.this, Page2.class);
-                startActivity(intent);
-            }
-            else if(buttonText.equals("Customer"))
-            {
-                Intent intent = new Intent(MainActivity.this, Page3.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(MainActivity.this, Page2.class);
+            startActivity(intent);
+        }
+        else if(buttonText.equals("Customer"))
+        {
+            Intent intent = new Intent(MainActivity.this, Page3.class);
+            startActivity(intent);
         }
     }
 }
